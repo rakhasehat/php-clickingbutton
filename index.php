@@ -24,7 +24,12 @@
             $.ajax({
                 url: "quotes.txt",
                 success: function(result) {
-                    $("#theText").html(data.message + result + "<br>" + data.date);
+                    let storage = result.split(",");
+                    let display = [];
+                    display.push(storage.pop());
+                    for(i = 0; i < display.length; i++){
+                        $("#theText").append(data.message + display[i] + "<br>" + data.date + "<br><br>");
+                    }
                 }
             })
         })
